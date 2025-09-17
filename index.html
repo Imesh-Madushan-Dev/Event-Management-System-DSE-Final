@@ -1,548 +1,848 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NIBM Events - Campus Event Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="font-inter bg-gray-50">
+  </head>
+  <body class="font-inter bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white/95 backdrop-blur-sm border-b border-gray-100 fixed top-0 w-full z-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-calendar-alt text-xl text-white"></i>
-                    </div>
-                    <span class="text-xl font-bold text-gray-900">NIBM Events</span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-600 hover:text-purple-600 font-medium transition-colors">Home</a>
-                    <a href="#features" class="text-gray-600 hover:text-purple-600 font-medium transition-colors">Features</a>
-                    <a href="#events" class="text-gray-600 hover:text-purple-600 font-medium transition-colors">Events</a>
-                    <a href="#branches" class="text-gray-600 hover:text-purple-600 font-medium transition-colors">Branches</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="login.html" class="text-gray-600 hover:text-purple-600 font-medium transition-colors">Login</a>
-                    <a href="register.html" class="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:-translate-y-0.5 transition-all">Get Started</a>
-                </div>
-                <!-- Mobile menu button -->
-                <button class="md:hidden text-gray-600" id="mobile-menu-btn">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+    <nav
+      class="bg-white/95 backdrop-blur-sm border-b border-gray-100 fixed top-0 w-full z-50"
+    >
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <div class="flex items-center space-x-2">
+            <div
+              class="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center"
+            >
+              <i class="fas fa-calendar-alt text-xl text-white"></i>
             </div>
+            <span class="text-xl font-bold text-gray-900">NIBM Events</span>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="text-gray-600 hover:text-purple-600 font-medium transition-colors"
+              >Home</a
+            >
+            <a
+              href="#features"
+              class="text-gray-600 hover:text-purple-600 font-medium transition-colors"
+              >Features</a
+            >
+            <a
+              href="#events"
+              class="text-gray-600 hover:text-purple-600 font-medium transition-colors"
+              >Events</a
+            >
+            <a
+              href="#branches"
+              class="text-gray-600 hover:text-purple-600 font-medium transition-colors"
+              >Branches</a
+            >
+          </div>
+          <div class="flex items-center space-x-4">
+            <a
+              href="login.html"
+              class="text-gray-600 hover:text-purple-600 font-medium transition-colors"
+              >Login</a
+            >
+            <a
+              href="register.html"
+              class="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              >Get Started</a
+            >
+          </div>
+          <!-- Mobile menu button -->
+          <button class="md:hidden text-gray-600" id="mobile-menu-btn">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
         </div>
-        <!-- Mobile menu -->
-        <div class="md:hidden hidden bg-white border-t border-gray-100" id="mobile-menu">
-            <div class="px-4 py-4 space-y-4">
-                <a href="#home" class="block text-gray-600 hover:text-purple-600 font-medium">Home</a>
-                <a href="#features" class="block text-gray-600 hover:text-purple-600 font-medium">Features</a>
-                <a href="#events" class="block text-gray-600 hover:text-purple-600 font-medium">Events</a>
-                <a href="#branches" class="block text-gray-600 hover:text-purple-600 font-medium">Branches</a>
-                <div class="pt-4 border-t border-gray-100">
-                    <a href="login.html" class="block text-gray-600 hover:text-purple-600 font-medium mb-2">Login</a>
-                    <a href="register.html" class="block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-2 rounded-full font-medium text-center">Get Started</a>
-                </div>
-            </div>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        class="md:hidden hidden bg-white border-t border-gray-100"
+        id="mobile-menu"
+      >
+        <div class="px-4 py-4 space-y-4">
+          <a
+            href="#home"
+            class="block text-gray-600 hover:text-purple-600 font-medium"
+            >Home</a
+          >
+          <a
+            href="#features"
+            class="block text-gray-600 hover:text-purple-600 font-medium"
+            >Features</a
+          >
+          <a
+            href="#events"
+            class="block text-gray-600 hover:text-purple-600 font-medium"
+            >Events</a
+          >
+          <a
+            href="#branches"
+            class="block text-gray-600 hover:text-purple-600 font-medium"
+            >Branches</a
+          >
+          <div class="pt-4 border-t border-gray-100">
+            <a
+              href="login.html"
+              class="block text-gray-600 hover:text-purple-600 font-medium mb-2"
+              >Login</a
+            >
+            <a
+              href="register.html"
+              class="block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-2 rounded-full font-medium text-center"
+              >Get Started</a
+            >
+          </div>
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-blue-50 relative overflow-hidden pt-20">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
-            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 2s;"></div>
-        </div>
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-blue-50 relative overflow-hidden pt-20"
+    >
+      <!-- Background Elements -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div
+          class="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
+        ></div>
+        <div
+          class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
+          style="animation-delay: 2s"
+        ></div>
+      </div>
 
-        <div class="max-w-6xl mx-auto px-4 relative z-10">
-            <div class="text-center">
-                <!-- Main Heading -->
-                <div class="mb-8">
-                    <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                        <span class="block">NIBM</span>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-purple-800 ">
-                            Events Hub
-                        </span>
-                    </h1>
-                    <p class="text-xl md:text-2xl text-gray-600 mb-4 max-w-3xl mx-auto font-light">
-                        Your gateway to campus events across all NIBM branches
-                    </p>
-                    <p class="text-lg text-gray-500 max-w-2xl mx-auto">
-                        Discover, engage, and connect with events that matter to your academic journey
-                    </p>
-                </div>
+      <div class="max-w-6xl mx-auto px-4 relative z-10">
+        <div class="text-center">
+          <!-- Main Heading -->
+          <div class="mb-8">
+            <h1
+              class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+            >
+              <span class="block">NIBM</span>
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-purple-800"
+              >
+                Events Hub
+              </span>
+            </h1>
+            <p
+              class="text-xl md:text-2xl text-gray-600 mb-4 max-w-3xl mx-auto font-light"
+            >
+              Your gateway to campus events across all NIBM branches
+            </p>
+            <p class="text-lg text-gray-500 max-w-2xl mx-auto">
+              Discover, engage, and connect with events that matter to your
+              academic journey
+            </p>
+          </div>
 
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-                    <a href="register.html" class="group bg-gradient-to-r from-purple-600 to-blue-600 text-white px-10 py-4 rounded-2xl font-semibold text-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex items-center">
-                        <i class="fas fa-rocket mr-3 group-hover:animate-bounce"></i>
-                        Join the Community
-                    </a>
-                    <a href="#events" class="group border-2 border-gray-300 text-gray-700 px-10 py-4 rounded-2xl font-semibold text-lg hover:border-purple-500 hover:text-purple-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center">
-                        <i class="fas fa-calendar mr-3 group-hover:animate-pulse"></i>
-                        Explore Events
-                    </a>
-                </div>
-
-                <!-- Stats Cards -->
-                <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-building text-xl text-white"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-1">10</h3>
-                        <p class="text-gray-600 font-medium">Campus Branches</p>
-                    </div>
-                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-calendar-alt text-xl text-white"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-1">100+</h3>
-                        <p class="text-gray-600 font-medium">Monthly Events</p>
-                    </div>
-                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-users text-xl text-white"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-1">5000+</h3>
-                        <p class="text-gray-600 font-medium">Active Students</p>
-                    </div>
-                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-star text-xl text-white"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-1">4.9</h3>
-                        <p class="text-gray-600 font-medium">User Rating</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <a href="#features" class="text-gray-400 hover:text-purple-600 transition-colors">
-                <i class="fas fa-chevron-down text-2xl"></i>
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+          >
+            <a
+              href="register.html"
+              class="group bg-gradient-to-r from-purple-600 to-blue-600 text-white px-10 py-4 rounded-2xl font-semibold text-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex items-center"
+            >
+              <i class="fas fa-rocket mr-3 group-hover:animate-bounce"></i>
+              Join the Community
             </a>
+            <a
+              href="#events"
+              class="group border-2 border-gray-300 text-gray-700 px-10 py-4 rounded-2xl font-semibold text-lg hover:border-purple-500 hover:text-purple-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center"
+            >
+              <i class="fas fa-calendar mr-3 group-hover:animate-pulse"></i>
+              Explore Events
+            </a>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div
+              class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-building text-xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-gray-900 mb-1">10</h3>
+              <p class="text-gray-600 font-medium">Campus Branches</p>
+            </div>
+            <div
+              class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-calendar-alt text-xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-gray-900 mb-1">100+</h3>
+              <p class="text-gray-600 font-medium">Monthly Events</p>
+            </div>
+            <div
+              class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-users text-xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-gray-900 mb-1">5000+</h3>
+              <p class="text-gray-600 font-medium">Active Students</p>
+            </div>
+            <div
+              class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-star text-xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-gray-900 mb-1">4.9</h3>
+              <p class="text-gray-600 font-medium">User Rating</p>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <a
+          href="#features"
+          class="text-gray-400 hover:text-purple-600 transition-colors"
+        >
+          <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+      </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Choose NIBM Events?</h2>
-                <p class="text-xl text-gray-600">Built for the modern campus experience</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center group hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors">
-                        <i class="fas fa-mobile-alt text-2xl text-purple-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Mobile Responsive</h3>
-                    <p class="text-gray-600">Access events on any device with our fully responsive design optimized for mobile, tablet, and desktop.</p>
-                </div>
-                <div class="text-center group hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors">
-                        <i class="fas fa-qrcode text-2xl text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">QR Code Integration</h3>
-                    <p class="text-gray-600">Generate QR codes for tickets instantly. Quick check-in process for seamless event entry.</p>
-                </div>
-                <div class="text-center group hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors">
-                        <i class="fas fa-shield-alt text-2xl text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Secure & Reliable</h3>
-                    <p class="text-gray-600">Built with security in mind. Your data is protected with modern encryption and secure authentication.</p>
-                </div>
-            </div>
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Why Choose NIBM Events?
+          </h2>
+          <p class="text-xl text-gray-600">
+            Built for the modern campus experience
+          </p>
         </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="text-center group hover:-translate-y-2 transition-all duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors"
+            >
+              <i class="fas fa-mobile-alt text-2xl text-purple-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">
+              Mobile Responsive
+            </h3>
+            <p class="text-gray-600">
+              Access events on any device with our fully responsive design
+              optimized for mobile, tablet, and desktop.
+            </p>
+          </div>
+          <div
+            class="text-center group hover:-translate-y-2 transition-all duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors"
+            >
+              <i class="fas fa-qrcode text-2xl text-green-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">
+              QR Code Integration
+            </h3>
+            <p class="text-gray-600">
+              Generate QR codes for tickets instantly. Quick check-in process
+              for seamless event entry.
+            </p>
+          </div>
+          <div
+            class="text-center group hover:-translate-y-2 transition-all duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors"
+            >
+              <i class="fas fa-shield-alt text-2xl text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">
+              Secure & Reliable
+            </h3>
+            <p class="text-gray-600">
+              Built with security in mind. Your data is protected with modern
+              encryption and secure authentication.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Featured Events Section -->
     <section id="events" class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Events</h2>
-                <p class="text-xl text-gray-600">Discover amazing events happening across NIBM branches</p>
-            </div>
-            
-            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-                <!-- Tech Event -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&h=300&fit=crop" alt="Tech Innovation Summit" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium">Colombo</span>
-                            <span class="text-purple-600 font-semibold">LKR 25.00</span>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Tech Innovation Summit 2024</h3>
-                        <p class="text-gray-600 text-sm mb-4">Join industry leaders and innovative startups for the biggest tech event of the year.</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-4 text-sm text-gray-500">
-                                <span><i class="fas fa-heart mr-1"></i>45</span>
-                                <span><i class="fas fa-users mr-1"></i>120</span>
-                            </div>
-                            <a href="register.html" class="text-purple-600 hover:text-purple-700 font-medium text-sm">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cultural Event -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&h=300&fit=crop" alt="Cultural Night" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium">Kandy</span>
-                            <span class="text-green-600 font-semibold">Free</span>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Cultural Night Extravaganza</h3>
-                        <p class="text-gray-600 text-sm mb-4">Experience Sri Lankan culture through music, dance, and traditional performances.</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-4 text-sm text-gray-500">
-                                <span><i class="fas fa-heart mr-1"></i>89</span>
-                                <span><i class="fas fa-users mr-1"></i>200</span>
-                            </div>
-                            <a href="register.html" class="text-purple-600 hover:text-purple-700 font-medium text-sm">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Business Event -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=500&h=300&fit=crop" alt="Business Workshop" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">Galle</span>
-                            <span class="text-purple-600 font-semibold">LKR 15.00</span>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Business Leadership Workshop</h3>
-                        <p class="text-gray-600 text-sm mb-4">Learn from successful entrepreneurs in this intensive leadership workshop.</p>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-4 text-sm text-gray-500">
-                                <span><i class="fas fa-heart mr-1"></i>67</span>
-                                <span><i class="fas fa-users mr-1"></i>85</span>
-                            </div>
-                            <a href="register.html" class="text-purple-600 hover:text-purple-700 font-medium text-sm">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="register.html" class="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
-                    View All Events
-                </a>
-            </div>
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Events</h2>
+          <p class="text-xl text-gray-600">
+            Discover amazing events happening across NIBM branches
+          </p>
         </div>
+
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+          <!-- Tech Event -->
+          <div
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&h=300&fit=crop"
+              alt="Tech Innovation Summit"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <span
+                  class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium"
+                  >Colombo</span
+                >
+                <span class="text-purple-600 font-semibold">LKR 25.00</span>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Tech Innovation Summit 2024
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Join industry leaders and innovative startups for the biggest
+                tech event of the year.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 text-sm text-gray-500">
+                  <span><i class="fas fa-heart mr-1"></i>45</span>
+                  <span><i class="fas fa-users mr-1"></i>120</span>
+                </div>
+                <a
+                  href="register.html"
+                  class="text-purple-600 hover:text-purple-700 font-medium text-sm"
+                  >Learn More →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Cultural Event -->
+          <div
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&h=300&fit=crop"
+              alt="Cultural Night"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <span
+                  class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm font-medium"
+                  >Kandy</span
+                >
+                <span class="text-green-600 font-semibold">Free</span>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Cultural Night Extravaganza
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Experience Sri Lankan culture through music, dance, and
+                traditional performances.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 text-sm text-gray-500">
+                  <span><i class="fas fa-heart mr-1"></i>89</span>
+                  <span><i class="fas fa-users mr-1"></i>200</span>
+                </div>
+                <a
+                  href="register.html"
+                  class="text-purple-600 hover:text-purple-700 font-medium text-sm"
+                  >Learn More →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Business Event -->
+          <div
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=500&h=300&fit=crop"
+              alt="Business Workshop"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-2">
+                <span
+                  class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium"
+                  >Galle</span
+                >
+                <span class="text-purple-600 font-semibold">LKR 15.00</span>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Business Leadership Workshop
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Learn from successful entrepreneurs in this intensive leadership
+                workshop.
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 text-sm text-gray-500">
+                  <span><i class="fas fa-heart mr-1"></i>67</span>
+                  <span><i class="fas fa-users mr-1"></i>85</span>
+                </div>
+                <a
+                  href="register.html"
+                  class="text-purple-600 hover:text-purple-700 font-medium text-sm"
+                  >Learn More →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="register.html"
+            class="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
+          >
+            View All Events
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- NIBM Branches Section -->
     <section id="branches" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">NIBM Campus Network</h2>
-                <p class="text-xl text-gray-600">Events happening across all NIBM locations island-wide</p>
-            </div>
-            <div class="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6">
-                <!-- Main Campus -->
-                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-university text-xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Colombo</h3>
-                    <p class="text-sm text-gray-600">Main Campus</p>
-                    <p class="text-xs text-purple-600 mt-2">Nugegoda</p>
-                </div>
-
-                <!-- Regional Campuses -->
-                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-building text-xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Kandy</h3>
-                    <p class="text-sm text-gray-600">Central Province</p>
-                    <p class="text-xs text-blue-600 mt-2">Hill Capital</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-                    <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-building text-xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Galle</h3>
-                    <p class="text-sm text-gray-600">Southern Province</p>
-                    <p class="text-xs text-green-600 mt-2">Historic City</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-                    <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-building text-xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Matara</h3>
-                    <p class="text-sm text-gray-600">Southern Coast</p>
-                    <p class="text-xs text-yellow-600 mt-2">Beach City</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-                    <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-building text-xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Kurunegala</h3>
-                    <p class="text-sm text-gray-600">North Western</p>
-                    <p class="text-xs text-red-600 mt-2">Coconut Triangle</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-                    <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-building text-xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Ratnapura</h3>
-                    <p class="text-sm text-gray-600">Sabaragamuwa</p>
-                    <p class="text-xs text-indigo-600 mt-2">Gem City</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-                    <div class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-building text-xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Kalutara</h3>
-                    <p class="text-sm text-gray-600">Western Coast</p>
-                    <p class="text-xs text-pink-600 mt-2">Coastal Hub</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-                    <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-building text-xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Badulla</h3>
-                    <p class="text-sm text-gray-600">Uva Province</p>
-                    <p class="text-xs text-teal-600 mt-2">Tea Country</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-                    <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-building text-xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Anuradhapura</h3>
-                    <p class="text-sm text-gray-600">North Central</p>
-                    <p class="text-xs text-orange-600 mt-2">Ancient Capital</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-building text-xl text-white"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Chilaw</h3>
-                    <p class="text-sm text-gray-600">North Western</p>
-                    <p class="text-xs text-cyan-600 mt-2">Fishing Port</p>
-                </div>
-            </div>
-
-            <!-- Branch Info -->
-            <div class="mt-12 text-center">
-                <div class="bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl p-8 max-w-4xl mx-auto">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Island-Wide Coverage</h3>
-                    <p class="text-gray-700 mb-6">NIBM operates across 10 strategic locations covering all major provinces in Sri Lanka, ensuring quality education and events are accessible to students nationwide.</p>
-                    <div class="grid md:grid-cols-3 gap-4 text-sm">
-                        <div class="bg-white/50 rounded-lg p-4">
-                            <i class="fas fa-map-marker-alt text-purple-600 mb-2"></i>
-                            <p class="font-semibold">Strategic Locations</p>
-                            <p class="text-gray-600">Covering all 9 provinces</p>
-                        </div>
-                        <div class="bg-white/50 rounded-lg p-4">
-                            <i class="fas fa-graduation-cap text-blue-600 mb-2"></i>
-                            <p class="font-semibold">Quality Education</p>
-                            <p class="text-gray-600">Consistent standards across branches</p>
-                        </div>
-                        <div class="bg-white/50 rounded-lg p-4">
-                            <i class="fas fa-users text-green-600 mb-2"></i>
-                            <p class="font-semibold">Local Communities</p>
-                            <p class="text-gray-600">Serving regional student needs</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            NIBM Campus Network
+          </h2>
+          <p class="text-xl text-gray-600">
+            Events happening across all NIBM locations island-wide
+          </p>
         </div>
+        <div class="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-6">
+          <!-- Colombo Campus -->
+          <div
+            class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center"
+          >
+            <div
+              class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-university text-xl text-white"></i>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Colombo</h3>
+            <p class="text-sm text-gray-600">Main Campus</p>
+            <p class="text-xs text-purple-600 mt-2">Colombo 07</p>
+          </div>
+
+          <!-- Rajagiriya Campus -->
+          <div
+            class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center"
+          >
+            <div
+              class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-building text-xl text-white"></i>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Rajagiriya</h3>
+            <p class="text-sm text-gray-600">Campus</p>
+            <p class="text-xs text-blue-600 mt-2">Colombo Area</p>
+          </div>
+
+          <!-- Kandy Campus -->
+          <div
+            class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center"
+          >
+            <div
+              class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-building text-xl text-white"></i>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Kandy</h3>
+            <p class="text-sm text-gray-600">Regional Campus</p>
+            <p class="text-xs text-green-600 mt-2">Central Province</p>
+          </div>
+
+          <!-- Kurunegala Campus -->
+          <div
+            class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center"
+          >
+            <div
+              class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-building text-xl text-white"></i>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Kurunegala</h3>
+            <p class="text-sm text-gray-600">Regional Campus</p>
+            <p class="text-xs text-yellow-600 mt-2">North Western Province</p>
+          </div>
+
+          <!-- Galle Campus -->
+          <div
+            class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center"
+          >
+            <div
+              class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-building text-xl text-white"></i>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Galle</h3>
+            <p class="text-sm text-gray-600">Regional Campus</p>
+            <p class="text-xs text-red-600 mt-2">Southern Province</p>
+          </div>
+
+          <!-- Matara Campus -->
+          <div
+            class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center"
+          >
+            <div
+              class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-building text-xl text-white"></i>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Matara</h3>
+            <p class="text-sm text-gray-600">Regional Campus</p>
+            <p class="text-xs text-indigo-600 mt-2">Southern Province</p>
+          </div>
+
+          <!-- Kirulapone NIC -->
+          <div
+            class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center"
+          >
+            <div
+              class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-lightbulb text-xl text-white"></i>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Kirulapone</h3>
+            <p class="text-sm text-gray-600">National Innovation Centre</p>
+            <p class="text-xs text-pink-600 mt-2">Colombo Area</p>
+          </div>
+
+          <!-- Kandy KIC -->
+          <div
+            class="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center"
+          >
+            <div
+              class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-lightbulb text-xl text-white"></i>
+            </div>
+            <h3 class="font-semibold text-gray-900 mb-1">Kandy KIC</h3>
+            <p class="text-sm text-gray-600">Innovation Centre</p>
+            <p class="text-xs text-teal-600 mt-2">Kandy Area</p>
+          </div>
+        </div>
+
+        <!-- Branch Info -->
+        <div class="mt-12 text-center">
+          <div
+            class="bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl p-8 max-w-4xl mx-auto"
+          >
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Island-Wide Coverage
+            </h3>
+            <p class="text-gray-700 mb-6">
+              NIBM operates across 10 strategic locations covering all major
+              provinces in Sri Lanka, ensuring quality education and events are
+              accessible to students nationwide.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4 text-sm">
+              <div class="bg-white/50 rounded-lg p-4">
+                <i class="fas fa-map-marker-alt text-purple-600 mb-2"></i>
+                <p class="font-semibold">Strategic Locations</p>
+                <p class="text-gray-600">Covering all 9 provinces</p>
+              </div>
+              <div class="bg-white/50 rounded-lg p-4">
+                <i class="fas fa-graduation-cap text-blue-600 mb-2"></i>
+                <p class="font-semibold">Quality Education</p>
+                <p class="text-gray-600">
+                  Consistent standards across branches
+                </p>
+              </div>
+              <div class="bg-white/50 rounded-lg p-4">
+                <i class="fas fa-users text-green-600 mb-2"></i>
+                <p class="font-semibold">Local Communities</p>
+                <p class="text-gray-600">Serving regional student needs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- System Features Section -->
     <section class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">System Features</h2>
-                <p class="text-xl text-gray-600">Comprehensive event management for the modern campus</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
-                <div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">For Students</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-search text-purple-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Browse Events</h4>
-                                <p class="text-gray-600">Discover events across all 10 NIBM branches with detailed information and images.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-ticket-alt text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Digital Tickets</h4>
-                                <p class="text-gray-600">Get instant digital tickets with QR codes for easy check-in at events.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-heart text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Engage & Interact</h4>
-                                <p class="text-gray-600">Like events, mark attendance, and connect with fellow students.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop" alt="Students using system" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h4 class="font-semibold text-gray-900 mb-2">Student Dashboard</h4>
-                    <p class="text-gray-600">Intuitive interface for browsing events, managing tickets, and tracking your campus activities.</p>
-                </div>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="bg-white rounded-xl shadow-lg p-8 order-2 lg:order-1">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&fit=crop" alt="Admin dashboard" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h4 class="font-semibold text-gray-900 mb-2">Admin Control Panel</h4>
-                    <p class="text-gray-600">Comprehensive dashboard for managing events, users, and analytics across all branches.</p>
-                </div>
-                <div class="order-1 lg:order-2">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">For Administrators</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-cogs text-purple-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Event Management</h4>
-                                <p class="text-gray-600">Create, edit, and delete events with full CRUD capabilities and real-time updates.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-chart-bar text-yellow-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">Analytics & Reports</h4>
-                                <p class="text-gray-600">Track event performance, user engagement, and revenue across all branches.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="fas fa-users-cog text-red-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-900">User Management</h4>
-                                <p class="text-gray-600">Manage student accounts and monitor system usage across the platform.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">System Features</h2>
+          <p class="text-xl text-gray-600">
+            Comprehensive event management for the modern campus
+          </p>
         </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">For Students</h3>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                >
+                  <i class="fas fa-search text-purple-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">Browse Events</h4>
+                  <p class="text-gray-600">
+                    Discover events across all 10 NIBM branches with detailed
+                    information and images.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                >
+                  <i class="fas fa-ticket-alt text-green-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">Digital Tickets</h4>
+                  <p class="text-gray-600">
+                    Get instant digital tickets with QR codes for easy check-in
+                    at events.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                >
+                  <i class="fas fa-heart text-blue-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">Engage & Interact</h4>
+                  <p class="text-gray-600">
+                    Like events, mark attendance, and connect with fellow
+                    students.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-8">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=300&fit=crop"
+              alt="Students using system"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h4 class="font-semibold text-gray-900 mb-2">Student Dashboard</h4>
+            <p class="text-gray-600">
+              Intuitive interface for browsing events, managing tickets, and
+              tracking your campus activities.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="bg-white rounded-xl shadow-lg p-8 order-2 lg:order-1">
+            <img
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&fit=crop"
+              alt="Admin dashboard"
+              class="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <h4 class="font-semibold text-gray-900 mb-2">
+              Admin Control Panel
+            </h4>
+            <p class="text-gray-600">
+              Comprehensive dashboard for managing events, users, and analytics
+              across all branches.
+            </p>
+          </div>
+          <div class="order-1 lg:order-2">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+              For Administrators
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                >
+                  <i class="fas fa-cogs text-purple-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">Event Management</h4>
+                  <p class="text-gray-600">
+                    Create, edit, and delete events with full CRUD capabilities
+                    and real-time updates.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                >
+                  <i class="fas fa-chart-bar text-yellow-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">
+                    Analytics & Reports
+                  </h4>
+                  <p class="text-gray-600">
+                    Track event performance, user engagement, and revenue across
+                    all branches.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1"
+                >
+                  <i class="fas fa-users-cog text-red-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">User Management</h4>
+                  <p class="text-gray-600">
+                    Manage student accounts and monitor system usage across the
+                    platform.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CTA Section -->
     <section class="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
-            <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-                Join thousands of NIBM students already using our platform to discover and engage with campus events.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="register.html" class="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <i class="fas fa-user-plus mr-2"></i>Create Account
-                </a>
-                <a href="login.html" class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-purple-600 transition-all">
-                    <i class="fas fa-sign-in-alt mr-2"></i>Sign In
-                </a>
-            </div>
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold text-white mb-6">
+          Ready to Get Started?
+        </h2>
+        <p class="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
+          Join thousands of NIBM students already using our platform to discover
+          and engage with campus events.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="register.html"
+            class="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl hover:-translate-y-1 transition-all"
+          >
+            <i class="fas fa-user-plus mr-2"></i>Create Account
+          </a>
+          <a
+            href="login.html"
+            class="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-purple-600 transition-all"
+          >
+            <i class="fas fa-sign-in-alt mr-2"></i>Sign In
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-calendar-alt text-lg text-white"></i>
-                        </div>
-                        <span class="text-xl font-bold">NIBM Events</span>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed">Connecting students across all NIBM campus branches through amazing events and experiences.</p>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-4">System Features</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Event Management</li>
-                        <li>Digital Tickets</li>
-                        <li>QR Code Generation</li>
-                        <li>Multi-Branch Support</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-4">For Users</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>Browse Events</li>
-                        <li>Purchase Tickets</li>
-                        <li>Track Attendance</li>
-                        <li>Mobile Access</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-semibold mb-4">Technology</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li>PHP Backend</li>
-                        <li>MySQL Database</li>
-                        <li>Responsive Design</li>
-                        <li>Secure Authentication</li>
-                    </ul>
-                </div>
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <div
+                class="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-calendar-alt text-lg text-white"></i>
+              </div>
+              <span class="text-xl font-bold">NIBM Events</span>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 NIBM Events Management System. Built for NIBM Campus Community.</p>
-            </div>
+            <p class="text-gray-400 leading-relaxed">
+              Connecting students across all NIBM campus branches through
+              amazing events and experiences.
+            </p>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">System Features</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Event Management</li>
+              <li>Digital Tickets</li>
+              <li>QR Code Generation</li>
+              <li>Multi-Branch Support</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">For Users</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>Browse Events</li>
+              <li>Purchase Tickets</li>
+              <li>Track Attendance</li>
+              <li>Mobile Access</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-4">Technology</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>PHP Backend</li>
+              <li>MySQL Database</li>
+              <li>Responsive Design</li>
+              <li>Secure Authentication</li>
+            </ul>
+          </div>
         </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>
+            &copy; 2024 NIBM Events Management System. Built for NIBM Campus
+            Community.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
-</body>
+  </body>
 </html>

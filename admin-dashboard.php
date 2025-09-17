@@ -26,9 +26,16 @@ $events_query = "SELECT e.*,
                         (SELECT COUNT(*) FROM Event_Attendance ea WHERE ea.event_id = e.event_id) as attendance_count,
                         (SELECT COUNT(*) FROM Tickets t WHERE t.event_id = e.event_id) as ticket_count
                  FROM Events e 
-                 WHERE e.admin_id = $admin_id
+                 WHERE e.admin_id = ?
                  ORDER BY e.created_date DESC";
-$events_result = mysqli_query($conn, $events_query);
+$stmt = mysqli_prepare($conn, $events_query);
+mysqli_stmt_bind_param($stmt, "i", $admin_id);
+mysqli_stmt_execute($stmt);
+$events_result = mysqli_stmt_get_result($stmt);
+
+// Debug: Check how many events are returned
+$event_count = mysqli_num_rows($events_result);
+// echo "<!-- Debug: Found $event_count events for admin_id: $admin_id -->";
 
 // Get all users
 $users_query = "SELECT * FROM Users ORDER BY name ASC";
@@ -157,50 +164,65 @@ $users_result = mysqli_query($conn, $users_query);
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <?php while ($event = mysqli_fetch_assoc($events_result)): ?>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <?php if ($event['img_url']): ?>
-                                                <img class="h-10 w-10 rounded-lg object-cover" src="<?php echo htmlspecialchars($event['img_url']); ?>" alt="">
-                                            <?php else: ?>
-                                                <div class="h-10 w-10 rounded-lg bg-purple-100 flex items-center justify-center">
-                                                    <i class="fas fa-calendar text-purple-600"></i>
-                                                </div>
-                                            <?php endif; ?>
+                            <?php if ($event_count > 0): ?>
+                                <?php while ($event = mysqli_fetch_assoc($events_result)): ?>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <?php if ($event['img_url']): ?>
+                                                    <img class="h-10 w-10 rounded-lg object-cover" src="<?php echo htmlspecialchars($event['img_url']); ?>" alt="">
+                                                <?php else: ?>
+                                                    <div class="h-10 w-10 rounded-lg bg-purple-100 flex items-center justify-center">
+                                                        <i class="fas fa-calendar text-purple-600"></i>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900"><?php echo htmlspecialchars($event['name']); ?></div>
+                                                <div class="text-sm text-gray-500"><?php echo date('M j, Y', strtotime($event['created_date'])); ?></div>
+                                            </div>
                                         </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900"><?php echo htmlspecialchars($event['name']); ?></div>
-                                            <div class="text-sm text-gray-500"><?php echo date('M j, Y', strtotime($event['created_date'])); ?></div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
+                                            <?php echo htmlspecialchars($event['branch']); ?>
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        <?php echo $event['price'] > 0 ? 'LKR ' . number_format($event['price'], 2) : 'Free'; ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <div class="flex space-x-4">
+                                            <span><i class="fas fa-heart text-red-500 mr-1"></i><?php echo $event['like_count']; ?></span>
+                                            <span><i class="fas fa-users text-blue-500 mr-1"></i><?php echo $event['attendance_count']; ?></span>
+                                            <span><i class="fas fa-ticket-alt text-green-500 mr-1"></i><?php echo $event['ticket_count']; ?></span>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
-                                        <?php echo htmlspecialchars($event['branch']); ?>
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    <?php echo $event['price'] > 0 ? 'LKR ' . number_format($event['price'], 2) : 'Free'; ?>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    <div class="flex space-x-4">
-                                        <span><i class="fas fa-heart text-red-500 mr-1"></i><?php echo $event['like_count']; ?></span>
-                                        <span><i class="fas fa-users text-blue-500 mr-1"></i><?php echo $event['attendance_count']; ?></span>
-                                        <span><i class="fas fa-ticket-alt text-green-500 mr-1"></i><?php echo $event['ticket_count']; ?></span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <button onclick="editEvent(<?php echo $event['event_id']; ?>)" class="text-purple-600 hover:text-purple-900 mr-3">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button onclick="deleteEvent(<?php echo $event['event_id']; ?>)" class="text-red-600 hover:text-red-900">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <?php endwhile; ?>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <button onclick="editEvent(<?php echo $event['event_id']; ?>)" class="text-purple-600 hover:text-purple-900 mr-3">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button onclick="deleteEvent(<?php echo $event['event_id']; ?>)" class="text-red-600 hover:text-red-900">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <?php endwhile; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="5" class="px-6 py-4 text-center text-gray-500">
+                                        <div class="flex flex-col items-center py-12">
+                                            <i class="fas fa-calendar-alt text-4xl text-gray-300 mb-4"></i>
+                                            <p class="text-lg font-semibold mb-2">No events found</p>
+                                            <p class="text-sm">Admin ID: <?php echo $admin_id; ?> | Events found: <?php echo $event_count; ?></p>
+                                            <button onclick="openEventModal()" class="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">
+                                                Create your first event
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

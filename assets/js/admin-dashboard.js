@@ -42,12 +42,13 @@ function openEventModal(eventId = null) {
   const form = document.getElementById("event-form")
   const title = document.getElementById("modal-title")
   const submitText = document.getElementById("submit-text")
+  const actionInput = form.querySelector('input[name="action"]')
 
   if (eventId) {
     // Edit mode
     title.textContent = "Edit Event"
     submitText.textContent = "Update Event"
-    form.action.value = "update"
+    actionInput.value = "update"
     document.getElementById("event_id").value = eventId
 
     // Load event data
@@ -56,7 +57,7 @@ function openEventModal(eventId = null) {
     // Create mode
     title.textContent = "Add New Event"
     submitText.textContent = "Create Event"
-    form.action.value = "create"
+    actionInput.value = "create"
     form.reset()
   }
 
