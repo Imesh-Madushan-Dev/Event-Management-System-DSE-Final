@@ -1,15 +1,25 @@
 <?php
-// Database connection script
-$host = "localhost";
-$username = "root";
-$password = "";
-$database = "nibm_events";
+/**
+ * Database Connection
+ * -------------------
+ * Establishes a MySQLi connection to the NIBM Events database.
+ * Included by all backend scripts via require_once.
+ */
 
-// Create connection
+$host     = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'nibm_events';
+
 $conn = mysqli_connect($host, $username, $password, $database);
 
-// Check connection
 if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    http_response_code(500);
+    die(json_encode([
+        'success' => false,
+        'message' => 'Database connection failed: ' . mysqli_connect_error(),
+    ]));
 }
-?>
+
+// Set charset for proper encoding
+mysqli_set_charset($conn, 'utf8mb4');
